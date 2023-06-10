@@ -2,5 +2,5 @@
 
 from math import *
 
-print(ceil(3.7))
+print(ceil(37))
 
