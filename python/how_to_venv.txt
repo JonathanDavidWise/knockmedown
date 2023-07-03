@@ -1,0 +1,16 @@
+
+Python    
+    Create venv
+        Be in path
+            python3 -m venv venv
+        Otherwise
+            python -m venv /path/to/new/virtual/environment
+
+    Activate venv
+        source venv/bin/activate
+
+    Deativate venv
+        deactivate
+
+    Destroy venv (simply delete the folder)
+        rm -r venv
