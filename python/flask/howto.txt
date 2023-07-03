@@ -1,0 +1,8 @@
+What are Thread Locals?
+
+FLASK
+
+export environment variable
+
+export FLASK_APP=app.py
+
