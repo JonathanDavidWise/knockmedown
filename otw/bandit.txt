@@ -1,0 +1,79 @@
+ssh bandit5@bandit.labs.overthewire.org -p2220
+lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+find -type f ! -executable -size 1033c | xargs file | grep text
+cat /inhere/maybehere07/.file2
+
+ssh bandit6@bandit.labs.overthewire.org -p2220
+P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+find -size 33c -group bandit6 -user bandit7
+cat ./var/lib/dpkg/info/bandit7.password
+its the only one that doesnt show find error permisssion denied
+
+ssh bandit7@bandit.labs.overthewire.org -p2220
+z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+cat data.txt | grep millionth
+
+ssh bandit8@bandit.labs.overthewire.org -p2220
+TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+sort data.txt | uniq -c
+
+ssh bandit9@bandit.labs.overthewire.org -p2220
+EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+cat data.txt | grep -a ==========
+
+ssh bandit10@bandit.labs.overthewire.org -p2220
+G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+cat data.txt | base64 -d
+
+ssh bandit11@bandit.labs.overthewire.org -p2220
+6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+cat data.txt | tr '[N-ZA-M]' '[A-Z]' | tr '[n-za-m]' '[a-z]'
+
+ssh bandit12@bandit.labs.overthewire.org -p2220
+JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+cd ../..
+mkdir testitytest
+var=$(pwd)
+cd home/bandit12
+cp data.txt $var
+cd $var
+mv data.txt do.txt
+
+vim
+:edit run.sh
+i
+
+//paste all this in there
+
+echo "\nStep - 1\nfind * | xargs file"
+find * | xargs file
+echo "\nStep - 2\nConvert to binary and make gzip extension\nxxd -r do.txt > do2.gz"
+xxd -r do.txt > do2.gz
+echo "\nStep - 3\nfind * | xargs file"
+find * | xargs file
+echo "\nStep - 4\nUncompress gzip file"
+gzip -d do2.gz
+echo "\nStep - 5\nfind * | xargs file"
+find * | xargs file
+
+:wq
+
+I didnt include all the commands, but keep decrypting and change file extensions if you have to
+
+ssh bandit13@bandit.labs.overthewire.org -p2220
+wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
+Enter PW
+chmod 700 sshkey.private
+
+ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p2220
+cd ../../etc/bandit_pass
+cat bandit 14
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+
+
+
+
+
+
+
