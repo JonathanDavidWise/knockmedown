@@ -1,8 +1,12 @@
-from fastapi import FastAPI, Path
+from fastapi import FastAPI, Path, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 from typing import Optional
 from pydantic import BaseModel
 
 app = FastAPI()
+
+templates = Jinja2Templates(directory="templates")
 
 # GET - get information
 # POST - create something new
@@ -32,9 +36,10 @@ class UpdateStudent(BaseModel):
     age: Optional[int] = None
     year: Optional[int] = None
 
-@app.get("/")
-def index():
-    return {"name": "First Data"}
+@app.get("/", response_class=HTMLResponse)
+def index(request: Request):
+    context = {'request': request}
+    return templates.TemplateResponse("index.html", context)
 
 @app.get("/get-student/{student_id}")
 def get_student(student_id: int = Path(description="The ID of the student you want to view"), gt=0, lt=3):
