@@ -36,10 +36,14 @@ class UpdateStudent(BaseModel):
     age: Optional[int] = None
     year: Optional[int] = None
 
+
+
 @app.get("/", response_class=HTMLResponse)
 def index(request: Request):
     context = {'request': request}
     return templates.TemplateResponse("index.html", context)
+
+# /docs gets to the debugger
 
 @app.get("/get-student/{student_id}")
 def get_student(student_id: int = Path(description="The ID of the student you want to view"), gt=0, lt=3):
